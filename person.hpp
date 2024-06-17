@@ -3,7 +3,7 @@
 #include <string>
 #include "define.hpp"
 #include "trip.hpp"
-#include <exception>
+#include "exceptions.hpp"
 class Data;
 
 class Person
@@ -16,8 +16,10 @@ public:
     void change_info_after_accept();
     void change_info_after_finish();
     virtual void finish_trip(Trip *_trip) = 0;
-    virtual void show_trip_info(Trip *_trip) = 0;
+    virtual Trip* show_trip_info(Trip *_trip) = 0;
     virtual void delete_trip(Trip *_trip) = 0;
+    virtual double get_cost_trip(Location *, Location *, std::string) = 0;
+
 protected:
     std::string name;
     State state;

@@ -20,3 +20,4 @@ void Person::change_info_after_finish()
     state = FINISHED;
     trip = nullptr;
 }
+

@@ -13,12 +13,14 @@ void Passenger::add_trip_for_post(Trip *_trip)
         state = WAITING;
     }
     else
-        throw logic_error(BAD_REQUEST_ERROR);
+    {
+        throw BadRequest();
+    }
 }
 
 void Passenger::accept_trip(Trip *_trip)
 {
-    throw logic_error(PERMISSION_DENIED_ERROR);
+    throw PermissionDenied();
 }
 
 void Passenger::change_info_after_accept()
@@ -28,28 +30,36 @@ void Passenger::change_info_after_accept()
 
 void Passenger::finish_trip(Trip *_trip)
 {
-    throw logic_error(PERMISSION_DENIED_ERROR);
+    throw PermissionDenied();
 }
 
-void Passenger::show_trip_info(Trip *_trip)
+Trip* Passenger::show_trip_info(Trip *_trip)
 {
-    throw logic_error(PERMISSION_DENIED_ERROR);
+    throw PermissionDenied();
 }
 
 void Passenger::show_trips(Data &data)
 {
-    throw logic_error(PERMISSION_DENIED_ERROR);
+    throw PermissionDenied();
 }
 
 void Passenger::delete_trip(Trip *_trip)
 {
-    if (*_trip == *trip)
+    if (*_trip == trip)
     {
         trip->delete_trip();
         state = FINISHED;
         trip = NULL;
-        cout << SUCCESS_MESSAGE << endl;
     }
     else
-        throw logic_error(PERMISSION_DENIED_ERROR);
+        throw PermissionDenied();
+}
+
+double Passenger::get_cost_trip(Location *origin, Location *destination, std::string hurry)
+{
+    double cost = origin->cal_trip_cost(destination);
+    if (hurry == YES)
+        return (1.2) * cost;
+    else
+        return cost;
 }

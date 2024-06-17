@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>UTAXI</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" alt="logo" src="logo.png">
+            <nav>
+                <ul class="nav_bar">
+                    <li><a href="signup-form">SignUp</a></li>
+                    <li><a href="ask-trip-form">Ask Trip</a></li>
+                    <li><a href="cost-form">Cost</a></li>
+                    <li><a href="get-trip-form">Trips Info</a></li>
+                    <li><a href="trip-manager" class="selected">Trip Manager</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="form-box">
+        <form action="finish" method="post">
+            <h1>Manager</h1>
+            <div class="txt_field">
+                <input type="text" name="username" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="id" required>
+                <span></span>
+                <label>ID</label>
+            </div>
+            <div text-align="center">
+                <button type="submit">Finish</button>
+                <button type="submit" formaction="accept">Accept</button>
+                <button type="submit" formaction="delete">Delete</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

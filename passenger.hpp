@@ -12,10 +12,10 @@ public:
     void change_info_after_accept();
     void finish_trip(Trip *_trip);
     void change_info_after_finish();
-    void show_trip_info(Trip *_trip);
+    Trip* show_trip_info(Trip *_trip);
     void show_trips(Data &data);
     void delete_trip(Trip *_trip);
-
+    double get_cost_trip(Location *, Location *, std::string);
 private:
 };
 #endif

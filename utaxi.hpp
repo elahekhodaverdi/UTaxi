@@ -12,6 +12,9 @@
 #include "post.hpp"
 #include "get.hpp"
 #include "data.hpp"
+#include "server/handler.hpp"
+#include "exceptions.hpp"
+#include "server/server.hpp"
 class Utaxi
 {
 public:
@@ -20,6 +23,6 @@ public:
 private:
     Data data;
     InputManager input_output;
-    Request *request;
+    Requestt *request;
 };
 #endif /* __UTAXI_HPP__ */

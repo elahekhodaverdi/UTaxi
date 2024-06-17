@@ -9,15 +9,20 @@ enum State
     DELETED
 };
 const char LOCATION_DATA_DELIMITER = ',';
-const std::string GET = "GET";
-const std::string POST = "POST";
+const std::string Gett = "GET";
+const std::string Postt = "POST";
 const std::string WAITING_STATUS = "waiting";
 const std::string TRAVELING_STATUS = "traveling";
 const std::string FINISHED_STATUS = "finished";
 const std::string EMPTY_STRING = "";
 const std::string DELETE = "DELETE";
 const std::string SIGNUP = "signup";
+const std::string COST = "cost";
+const std::string IN_HURRY = "in_hurry";
 const std::string TRIPS = "trips";
+const std::string YES = "yes";
+const std::string NO = "no";
+const std::string SORT_BY_COST = "sort_by_cost";
 const std::string COMMAND_DELIMITER = " ";
 const std::string ACCEPT = "accept";
 const std::string FINISH = "finish";
@@ -31,6 +36,7 @@ const std::string USERNAME = "username";
 const std::string ID = "id";
 const std::string ROLE = "role";
 const std::string ORIGIN = "origin";
+const std::string SPACE_DELIMITER = " ";
 const std::string DESTINATION = "destination";
 const std::string EMPTY_LIST_ERROR = "Empty";
 #endif

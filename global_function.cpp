@@ -2,7 +2,7 @@
 using namespace std;
 vector<string> split_by_space(string line)
 {
-    string space_delimiter = " ";
+    string space_delimiter = SPACE_DELIMITER;
     vector<string> words{};
 
     size_t pos = 0;
@@ -12,6 +12,5 @@ vector<string> split_by_space(string line)
         line = line.substr(pos + space_delimiter.length());
     }
     words.push_back(line);
-    words.erase(words.begin());
     return words;
 }

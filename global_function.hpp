@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "define.hpp"
 
 std::vector<std::string> split_by_space(std::string line);
 #endif

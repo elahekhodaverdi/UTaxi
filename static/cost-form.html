@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>UTAXI</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" alt="logo" src="logo.png">
+            <nav>
+                <ul class="nav_bar">
+                    <li><a href="signup-form">SignUp</a></li>
+                    <li><a href="ask-trip-form">Ask Trip</a></li>
+                    <li><a href="cost-form" class="selected">Cost</a></li>
+                    <li><a href="get-trip-form">Trips Info</a></li>
+                    <li><a href="trip-manager">Trip Manager</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="form-box">
+        <form action="get-cost" method="get">
+            <h1>Cost</h1>
+            <div class="txt_field">
+                <input type="text" name="username" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="origin" required>
+                <span></span>
+                <label>Origin</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="destination" required>
+                <span></span>
+                <label>Destination</label>
+            </div>
+            <div class="txt_field">
+                <input list="hurry" name="in_hurry" required>
+                <span></span>
+                <datalist>
+                    <option value="yes"></option>
+                    <option value="no"></option>
+                </datalist>
+                <label>in hurry</label>
+            </div>
+            <div class="submit1">
+                <input type="submit" value="submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -3,18 +3,16 @@
 #include <string>
 #include "data.hpp"
 #include <algorithm>
-#include <exception>
+#include "exceptions.hpp"
 #include <iostream>
 #include "global_function.hpp"
 #include "define.hpp"
-class Request
+class Requestt
 {
 public:
-    Request(std::string _command);
-    virtual void handle_request(Data &_data) = 0;
+    // virtual void handle_request(Data &_data) = 0;
     std::string find_next_word(const std::vector<std::string> &request, std::string _given_word);
 
 protected:
-    std::string command;
 };
 #endif

@@ -1,43 +1,54 @@
 #include "get.hpp"
-GetRequest::GetRequest(std::string _command) : Request(_command)
-{
-}
-void GetRequest::handle_request(Data &data)
-{
-    std::vector<std::string> requests = split_by_space(command);
-    if (requests[0] == TRIPS)
-        trip(data, requests);
-    else
-        throw std::logic_error(NOT_FOUND_ERROR);
-}
+using namespace std;
 
-void GetRequest::trip(Data &data, std::vector<std::string> &commands)
+
+vector<Trip *> GetRequest::trip(Data &data, vector<string> &commands)
 {
-    std::string username = find_next_word(commands, USERNAME);
-    std::string _id = find_next_word(commands, ID);
+    vector<Trip *> trips;
+    string username = find_next_word(commands, USERNAME);
+    string _id = find_next_word(commands, ID);
+    string sort_by_cost_ = find_next_word(commands, SORT_BY_COST);
+    bool sort_by_cost;
     int id;
     if (username != EMPTY_STRING)
     {
         if (_id != EMPTY_STRING)
         {
             id = stoi(_id);
-            data.show_trip_info(username, id);
+            trips.push_back(data.show_trip_info(username, id));
+            return trips;
         }
         else
-            data.show_trips(username);
+        {
+            if (sort_by_cost_ != EMPTY_STRING)
+            {
+                sort_by_cost = (sort_by_cost_ == YES) ? true : false;
+                return data.show_trips(username, sort_by_cost);
+            }
+            else
+            {
+                throw BadRequest();
+            }
+        }
     }
     else
-        throw std::logic_error(BAD_REQUEST_ERROR);
+        throw BadRequest();
 }
 
-void GetRequest::show_trip_info(Data &data, std::vector<std::string> &commands)
+void GetRequest::show_trip_info(Data &data, vector<string> &commands)
 {
-    std::string username = find_next_word(commands, USERNAME);
+    string username = find_next_word(commands, USERNAME);
     int id = stoi(find_next_word(commands, ID));
     data.show_trip_info(username, id);
 }
 
-void GetRequest::show_trips(Data &data, std::vector<std::string> &commands)
+void GetRequest::get_cost(Data &data, vector<string> &commands)
 {
-    std::string username = find_next_word(commands, USERNAME);
+    string username = find_next_word(commands, USERNAME);
+    string origin = find_next_word(commands, ORIGIN);
+    string destination = find_next_word(commands, DESTINATION);
+    string in_hurry = find_next_word(commands, IN_HURRY);
+    if (username == EMPTY_STRING || destination == EMPTY_STRING || origin == EMPTY_STRING || in_hurry == EMPTY_STRING)
+        throw BadRequest();
+    data.get_cost(username, origin, destination, in_hurry);
 }

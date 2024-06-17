@@ -13,8 +13,9 @@ public:
     void change_info_after_accept(Trip *_trip);
     void finish_trip(Trip *_trip);
     void change_info_after_make_trip();
-    void show_trip_info(Trip *_trip);
+    Trip* show_trip_info(Trip *_trip);
     void delete_trip(Trip *_trip);
+    double get_cost_trip(Location *, Location *, std::string);
 
 private:
 };
